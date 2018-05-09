@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>transition3d</title>
+</head>
+<style>
+*{
+  margin: auto auto;
+}
+body{
+  text-align: center;
+}
+.container{position: relative;width: 250px;height: auto;}
+#front,#turn{
+  width: 250px;
+  height: 350px;
+  position: absolute;
+  transition: all 2s;
+  -webkit-transition:all 2s;
+}
+#front{background-image: url("img/front.jpg");}
+#turn{background-image: url("img/turn.jpg"); transform: rotate3d(0,1,0,180deg);
+     z-index: -100}
+.container:hover #turn{
+  /* z-index: -100; */
+  transform: rotate3d(0,1,0,360deg);
+  -webkit-transform: rotate3d(0,1,0,360deg);	/* Safari 和 Chrome */
+  -moz-transform: rotateY(0,1,0,360deg);
+  z-index: 100
+}
+.container:hover #front{
+  transform: rotate3d(0,1,0,180deg);
+  -webkit-transform: rotate3d(0,1,0,180deg);	/* Safari 和 Chrome */
+  -moz-transform: rotateY(0,1,0,180deg);
+}
+</style>
+<body>
+<div class="container">
+  <div id="front"></div>
+  <div id="turn"></div>
+</div>
+</body>
+</html>
